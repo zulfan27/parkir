@@ -1,0 +1,53 @@
+erDiagram
+  TB_USER ||--o{ TB_KENDARAAN : "mencatat"
+  TB_USER ||--o{ TB_TRANSAKSI : "memproses"
+  TB_USER ||--o{ TB_LOG_AKTIVITAS : "memiliki"
+  TB_KENDARAAN ||--o{ TB_TRANSAKSI : "memiliki"
+  TB_TARIF ||--o{ TB_TRANSAKSI : "digunakan"
+  TB_AREA_PARKIR ||--o{ TB_TRANSAKSI : "menampung"
+
+  TB_USER {
+    int id_user PK
+    varchar nama_lengkap
+    varchar username UK
+    varchar password
+    enum role
+    tinyint status_aktif
+  }
+  TB_KENDARAAN {
+    int id_kendaraan PK
+    varchar plat_nomor UK
+    varchar jenis_kendaraan
+    varchar warna
+    varchar pemilik
+    int id_user FK
+  }
+  TB_TARIF {
+    int id_tarif PK
+    enum jenis_kendaraan UK
+    decimal tarif_per_jam
+  }
+  TB_AREA_PARKIR {
+    int id_area PK
+    varchar nama_area
+    int kapasitas
+    int terisi
+  }
+  TB_TRANSAKSI {
+    int id_parkir PK
+    int id_kendaraan FK
+    datetime waktu_masuk
+    datetime waktu_keluar
+    int id_tarif FK
+    int durasi_jam
+    decimal biaya_total
+    enum status
+    int id_user FK
+    int id_area FK
+  }
+  TB_LOG_AKTIVITAS {
+    int id_log PK
+    int id_user FK
+    varchar aktivitas
+    datetime waktu_aktivitas
+  }

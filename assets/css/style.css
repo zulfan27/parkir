@@ -1,0 +1,906 @@
+/* ==========================================================================
+   ParkirKu - Modern Parking Management System Stylesheet
+   Designed with Dark Navy Corporate Theme, Modern Cards & Realistic Floor Plan
+   ========================================================================== */
+
+:root {
+  --pk-primary: #1e3a8a;
+  --pk-primary-dark: #0f172a;
+  --pk-primary-light: #2563eb;
+  --pk-sidebar-bg: #0b132b;
+  --pk-sidebar-text: #94a3b8;
+  --pk-sidebar-hover: #1e293b;
+  --pk-sidebar-active: #2563eb;
+  --pk-bg-light: #f8fafc;
+  --pk-card-bg: #ffffff;
+  --pk-border-color: #e2e8f0;
+  --pk-success: #10b981;
+  --pk-danger: #ef4444;
+  --pk-warning: #f59e0b;
+  --pk-info: #06b6d4;
+  --pk-asphalt: #222b38;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background-color: var(--pk-bg-light);
+  color: #1e293b;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
+/* --------------------------------------------------------------------------
+   App Layout: Sidebar & Main Area
+   -------------------------------------------------------------------------- */
+.app-wrapper {
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+}
+
+.app-sidebar {
+  width: 250px;
+  background: var(--pk-sidebar-bg);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1040;
+  transition: transform 0.3s ease, width 0.3s ease;
+  box-shadow: 4px 0 24px rgba(0, 0, 0, 0.2);
+}
+
+.sidebar-header {
+  padding: 1.25rem 1.25rem;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.brand-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: #fff;
+  text-decoration: none;
+}
+
+.brand-icon {
+  width: 42px;
+  height: 42px;
+  background: #2563eb;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.45);
+}
+
+.brand-title {
+  font-size: 1.2rem;
+  font-weight: 800;
+  letter-spacing: -0.3px;
+  color: #ffffff;
+  line-height: 1.1;
+}
+
+.brand-sub {
+  font-size: 0.68rem;
+  color: #94a3b8;
+  margin-top: 2px;
+}
+
+.sidebar-menu {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1rem 0.75rem;
+}
+
+.nav-link-custom {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.7rem 0.85rem;
+  border-radius: 8px;
+  color: var(--pk-sidebar-text);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.875rem;
+  transition: all 0.2s ease;
+  margin-bottom: 3px;
+}
+
+.nav-link-custom:hover {
+  background: var(--pk-sidebar-hover);
+  color: #ffffff;
+}
+
+.nav-link-custom.active {
+  background: var(--pk-sidebar-active);
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.4);
+  font-weight: 600;
+}
+
+.nav-link-custom i {
+  font-size: 1.1rem;
+  width: 20px;
+  text-align: center;
+}
+
+.sidebar-footer {
+  padding: 0.75rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+/* --------------------------------------------------------------------------
+   Main Content Area & Top Navbar
+   -------------------------------------------------------------------------- */
+.app-main {
+  flex: 1;
+  margin-left: 250px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  transition: margin-left 0.3s ease;
+}
+
+.top-navbar {
+  height: 68px;
+  background: #ffffff;
+  border-bottom: 1px solid var(--pk-border-color);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1.75rem;
+  position: sticky;
+  top: 0;
+  z-index: 1020;
+  box-shadow: 0 1px 4px rgba(15, 23, 42, 0.04);
+}
+
+.top-nav-left {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.top-nav-right {
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.85rem !important;
+  margin-left: auto;
+}
+
+.top-nav-icon-btn {
+  width: 40px !important;
+  height: 40px !important;
+  border-radius: 10px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background: #ffffff !important;
+  border: 1px solid var(--pk-border-color) !important;
+  color: #475569 !important;
+  position: relative !important;
+  transition: all 0.2s ease !important;
+  cursor: pointer !important;
+  padding: 0 !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  appearance: none;
+  -webkit-appearance: none;
+  outline: none;
+}
+
+.top-nav-icon-btn:hover {
+  background: #f8fafc !important;
+  color: #1e3a8a !important;
+  border-color: #cbd5e1 !important;
+}
+
+.top-nav-icon-btn .badge-counter {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  min-width: 19px;
+  height: 19px;
+  font-size: 0.65rem;
+  font-weight: 800;
+  border-radius: 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #ef4444;
+  color: #ffffff;
+  border: 2px solid #ffffff;
+  box-shadow: 0 2px 5px rgba(239, 68, 68, 0.4);
+  line-height: 1;
+  padding: 0 4px;
+}
+
+.user-profile-pill {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 0.65rem !important;
+  padding: 0.35rem 0.85rem 0.35rem 0.4rem !important;
+  border-radius: 30px !important;
+  background: #ffffff !important;
+  border: 1px solid var(--pk-border-color) !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+  user-select: none !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  white-space: nowrap !important;
+  text-decoration: none !important;
+}
+
+.user-profile-pill:hover {
+  background: #f8fafc !important;
+  border-color: #cbd5e1 !important;
+}
+
+.user-avatar-circle {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #2563eb 0%, #1e3a8a 100%);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.15rem;
+  box-shadow: 0 2px 6px rgba(37, 99, 235, 0.3);
+  flex-shrink: 0;
+}
+
+.user-meta .user-name {
+  font-size: 0.825rem;
+  font-weight: 700;
+  color: #0f172a;
+  line-height: 1.2;
+}
+
+.user-meta .user-role {
+  font-size: 0.7rem;
+  color: #64748b;
+  line-height: 1.2;
+}
+
+.notification-dropdown {
+  min-width: 310px;
+  border-radius: 12px;
+  border: 1px solid var(--pk-border-color);
+}
+
+.page-container {
+  padding: 1.5rem 1.75rem;
+  flex: 1;
+}
+
+/* --------------------------------------------------------------------------
+   Cards & UI Components
+   -------------------------------------------------------------------------- */
+.pk-card {
+  background: #ffffff;
+  border: 1px solid var(--pk-border-color);
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.03);
+}
+
+/* Header Stat Widgets Matching Reference Image */
+.stat-widget-ref, .stat-widget {
+  background: #ffffff;
+  border: 1px solid var(--pk-border-color);
+  border-radius: 12px;
+  padding: 1rem 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  box-shadow: 0 1px 6px rgba(15, 23, 42, 0.03);
+  height: 100%;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.stat-widget-ref:hover, .stat-widget:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(15, 23, 42, 0.07);
+}
+
+.stat-circle-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  flex-shrink: 0;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.12);
+}
+
+.stat-circle-blue { background: #2563eb; color: #ffffff; }
+.stat-circle-green { background: #10b981; color: #ffffff; }
+.stat-circle-navy { background: #1e3a8a; color: #ffffff; }
+.stat-circle-purple { background: #8b5cf6; color: #ffffff; }
+.stat-circle-red { background: #ef4444; color: #ffffff; }
+.stat-circle-amber, .stat-circle-yellow { background: #f59e0b; color: #ffffff; }
+.stat-circle-cyan { background: #06b6d4; color: #ffffff; }
+.stat-circle-dark { background: #334155; color: #ffffff; }
+
+.stat-widget-ref .stat-label, .stat-widget .stat-title, .stat-widget .stat-label {
+  font-size: 0.775rem;
+  font-weight: 600;
+  color: #64748b;
+  margin-bottom: 0.15rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.stat-widget-ref .stat-num, .stat-widget .stat-value, .stat-widget .stat-num {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #0f172a;
+  line-height: 1.2;
+}
+
+.stat-widget-ref .stat-info, .stat-widget .stat-sub, .stat-widget .stat-info {
+  font-size: 0.725rem;
+  color: #64748b;
+  margin-top: 0.2rem;
+}
+
+.stat-progress-bar {
+  height: 5px;
+  background: #e2e8f0;
+  border-radius: 4px;
+  margin-top: 0.45rem;
+  overflow: hidden;
+}
+
+.stat-progress-fill-red { background: #ef4444; height: 100%; border-radius: 4px; transition: width 0.4s ease; }
+.stat-progress-fill-green { background: #10b981; height: 100%; border-radius: 4px; transition: width 0.4s ease; }
+.stat-progress-fill-blue { background: #2563eb; height: 100%; border-radius: 4px; transition: width 0.4s ease; }
+.stat-progress-fill-amber { background: #f59e0b; height: 100%; border-radius: 4px; transition: width 0.4s ease; }
+
+/* Dashboard Hero Banner */
+.dashboard-hero {
+  background: linear-gradient(135deg, #0b132b 0%, #1e3a8a 100%);
+  border-radius: 14px;
+  color: #ffffff;
+  padding: 1.5rem 1.75rem;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.dashboard-hero::before {
+  content: "";
+  position: absolute;
+  top: -50px;
+  right: -50px;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(37, 99, 235, 0.25) 0%, rgba(37, 99, 235, 0) 70%);
+  pointer-events: none;
+}
+
+/* License Plate Badge */
+.badge-plate {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: #0f172a;
+  color: #ffffff;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 700;
+  font-size: 0.85rem;
+  padding: 0.22rem 0.6rem;
+  border-radius: 6px;
+  border: 1px solid #334155;
+  letter-spacing: 0.05em;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+
+/* Vehicle Color Dot Indicator */
+.color-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+  border: 1px solid rgba(0,0,0,0.2);
+  vertical-align: middle;
+  margin-right: 4px;
+}
+
+/* --------------------------------------------------------------------------
+   REALISTIC PARKING LOT CANVAS (SEMIRIP REFERENSI)
+   -------------------------------------------------------------------------- */
+.parking-canvas-wrapper {
+  background: #1b2430;
+  border-radius: 14px;
+  padding: 1.5rem 1.75rem;
+  position: relative;
+  border: 1px solid #334155;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+  overflow-x: auto;
+}
+
+/* Landscaping hedge borders */
+.curb-surround {
+  border: 5px solid #334155;
+  border-radius: 12px;
+  background: var(--pk-asphalt);
+  padding: 1.25rem 1.25rem 2rem 1.25rem;
+  position: relative;
+  min-width: 780px;
+}
+
+/* Zone Section Banner */
+.zone-pill-header {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #0d2342;
+  border: 1px solid #2563eb;
+  color: #ffffff;
+  padding: 0.4rem 0.9rem;
+  border-radius: 30px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.zone-pill-icon {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #2563eb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+}
+
+/* Asphalt Roadways & Arrows */
+.asphalt-lane {
+  height: 40px;
+  margin: 0.4rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.asphalt-lane::after {
+  content: "";
+  position: absolute;
+  left: 5%;
+  right: 5%;
+  top: 50%;
+  height: 2px;
+  border-top: 2px dashed rgba(253, 224, 71, 0.7);
+}
+
+.road-arrow {
+  font-size: 1.25rem;
+  color: #ffffff;
+  opacity: 0.85;
+  font-weight: 900;
+  z-index: 2;
+  background: var(--pk-asphalt);
+  padding: 0 0.75rem;
+  user-select: none;
+}
+
+/* Entrance and Exit Gates */
+.gate-marker {
+  position: absolute;
+  bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 800;
+  font-size: 0.8rem;
+  color: #ffffff;
+  letter-spacing: 0.05em;
+}
+
+.gate-marker-masuk { left: 1.5rem; }
+.gate-marker-keluar { right: 1.5rem; }
+
+.barrier-boom {
+  width: 32px;
+  height: 6px;
+  background: repeating-linear-gradient(45deg, #ef4444, #ef4444 6px, #ffffff 6px, #ffffff 12px);
+  border-radius: 2px;
+  border: 1px solid #000;
+}
+
+/* Security Booth (POS) */
+.pos-booth {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+  background: #e2e8f0;
+  border: 2px solid #2563eb;
+  border-radius: 6px;
+  padding: 0.25rem 0.6rem;
+  text-align: center;
+  font-weight: 800;
+  font-size: 0.75rem;
+  color: #1e3a8a;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+  z-index: 5;
+}
+
+/* --------------------------------------------------------------------------
+   SLOT BAYS: MOTOR & MOBIL
+   -------------------------------------------------------------------------- */
+.slots-row-container {
+  display: flex;
+  gap: 5px;
+  justify-content: space-between;
+  margin-bottom: 0.35rem;
+}
+
+/* Motor Slot Bay (Narrow) */
+.bay-motor {
+  flex: 1;
+  min-width: 32px;
+  max-width: 42px;
+  height: 78px;
+  border: 1.5px solid;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2px 1px;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  position: relative;
+  user-select: none;
+}
+
+/* Mobil Slot Bay (Wider) */
+.bay-mobil {
+  flex: 1;
+  min-width: 62px;
+  max-width: 82px;
+  height: 104px;
+  border: 2px solid;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 3px 2px;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  position: relative;
+  user-select: none;
+}
+
+.bay-motor:hover, .bay-mobil:hover {
+  transform: translateY(-2px);
+  z-index: 10;
+}
+
+/* Bay States */
+.bay-empty {
+  border-color: #10b981;
+  background-color: rgba(16, 185, 129, 0.16);
+  color: #10b981;
+}
+
+.bay-empty:hover {
+  background-color: rgba(16, 185, 129, 0.3);
+  box-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
+}
+
+.bay-occupied {
+  border-color: #ef4444;
+  background-color: rgba(239, 68, 68, 0.2);
+  color: #ef4444;
+}
+
+.bay-occupied:hover {
+  background-color: rgba(239, 68, 68, 0.35);
+  box-shadow: 0 0 12px rgba(239, 68, 68, 0.6);
+}
+
+.bay-nonaktif {
+  border-color: #64748b;
+  background-color: rgba(100, 116, 139, 0.18);
+  color: #94a3b8;
+  opacity: 0.6;
+}
+
+.bay-selected {
+  outline: 3px solid #38bdf8 !important;
+  box-shadow: 0 0 16px rgba(56, 189, 248, 0.8) !important;
+}
+
+/* Bay Slot Code Labels */
+.bay-tag {
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  color: #ffffff;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.8);
+  line-height: 1;
+}
+
+.bay-vehicle-canvas {
+  flex: 1;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: visible;
+}
+
+/* --------------------------------------------------------------------------
+   RIGHT DETAIL PANEL ("Detail Slot")
+   -------------------------------------------------------------------------- */
+.detail-slot-panel {
+  background: #ffffff;
+  border: 1px solid var(--pk-border-color);
+  border-radius: 12px;
+  padding: 1.25rem;
+  box-shadow: 0 2px 12px rgba(15, 23, 42, 0.04);
+}
+
+.detail-slot-panel .panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 0.85rem;
+  border-bottom: 1px solid var(--pk-border-color);
+  margin-bottom: 1rem;
+}
+
+.detail-slot-panel .panel-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0;
+}
+
+.badge-status-lg {
+  padding: 0.25rem 0.75rem;
+  font-weight: 700;
+  font-size: 0.75rem;
+  border-radius: 4px;
+  text-transform: uppercase;
+}
+
+.badge-status-empty { background: #10b981; color: #fff; }
+.badge-status-occupied { background: #ef4444; color: #fff; }
+.badge-status-disabled { background: #64748b; color: #fff; }
+
+.slot-code-display {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0.75rem 0 1rem 0;
+}
+
+.slot-code-big {
+  font-size: 2.2rem;
+  font-weight: 900;
+  color: #0f172a;
+  letter-spacing: -0.5px;
+  line-height: 1;
+}
+
+.slot-type-circle {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #1e3a8a;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+}
+
+.detail-prop-table {
+  width: 100%;
+  font-size: 0.825rem;
+  margin-bottom: 1rem;
+}
+
+.detail-prop-table td {
+  padding: 0.4rem 0;
+}
+
+.detail-prop-table td:first-child {
+  color: #64748b;
+  width: 45%;
+}
+
+.detail-prop-table td:last-child {
+  font-weight: 600;
+  color: #0f172a;
+  text-align: right;
+}
+
+.btn-slot-action {
+  width: 100%;
+  padding: 0.7rem 1rem;
+  font-weight: 700;
+  font-size: 0.9rem;
+  border-radius: 8px;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: all 0.2s ease;
+}
+
+.btn-slot-parkir {
+  background: #10b981;
+  color: #ffffff;
+}
+
+.btn-slot-parkir:hover {
+  background: #059669;
+  color: #ffffff;
+}
+
+.btn-slot-keluar {
+  background: #ef4444;
+  color: #ffffff;
+}
+
+.btn-slot-keluar:hover {
+  background: #dc2626;
+  color: #ffffff;
+}
+
+.detail-subcard {
+  background: #f8fafc;
+  border: 1px solid var(--pk-border-color);
+  border-radius: 8px;
+  padding: 0.85rem;
+  margin-top: 1rem;
+}
+
+.detail-subcard-title {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #334155;
+  margin-bottom: 0.5rem;
+}
+
+/* --------------------------------------------------------------------------
+   Receipt Styling
+   -------------------------------------------------------------------------- */
+.receipt-box {
+  max-width: 380px;
+  margin: 1.5rem auto;
+  background: #fff;
+  border: 1px solid #cbd5e1;
+  padding: 1.75rem;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+  border-radius: 8px;
+  font-family: 'Courier New', Courier, monospace;
+  color: #111;
+}
+
+.receipt-header {
+  text-align: center;
+  margin-bottom: 1.25rem;
+  border-bottom: 1px dashed #94a3b8;
+  padding-bottom: 1rem;
+}
+
+.receipt-header h3 {
+  font-size: 1.4rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  margin-bottom: 0.25rem;
+}
+
+.receipt-body {
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+
+.receipt-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.25rem;
+}
+
+.receipt-divider {
+  border-top: 1px dashed #94a3b8;
+  margin: 0.75rem 0;
+}
+
+.receipt-total {
+  font-size: 1.15rem;
+  font-weight: 700;
+  display: flex;
+  justify-content: space-between;
+  margin: 0.5rem 0;
+}
+
+.receipt-footer {
+  text-align: center;
+  margin-top: 1.25rem;
+  border-top: 1px dashed #94a3b8;
+  padding-top: 0.75rem;
+  font-size: 0.75rem;
+  color: #475569;
+}
+
+@media print {
+  body {
+    background: #fff !important;
+    color: #000 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  .no-print, .app-sidebar, .top-navbar {
+    display: none !important;
+  }
+  .app-main {
+    margin-left: 0 !important;
+  }
+  .receipt-box {
+    border: none !important;
+    box-shadow: none !important;
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Mobile Responsive Navigation
+   -------------------------------------------------------------------------- */
+.sidebar-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(2px);
+  z-index: 1035;
+}
+
+@media (max-width: 991.98px) {
+  .app-sidebar {
+    transform: translateX(-100%);
+  }
+  .app-sidebar.show {
+    transform: translateX(0);
+  }
+  .app-main {
+    margin-left: 0;
+  }
+  .sidebar-overlay.show {
+    display: block;
+  }
+  .top-navbar {
+    padding: 0 1rem;
+  }
+  .page-container {
+    padding: 1rem;
+  }
+}

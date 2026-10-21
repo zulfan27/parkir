@@ -1,0 +1,37 @@
+flowchart TD
+  A([Mulai]) --> B[Input username dan password]
+  B --> C{Akun aktif dan password valid?}
+  C -- Tidak --> D[Tampilkan pesan gagal]
+  D --> B
+  C -- Ya --> E{Role pengguna}
+  E -- Admin --> F[Dashboard Admin]
+  E -- Petugas --> G[Dashboard Petugas]
+  E -- Owner --> H[Dashboard Owner]
+  F --> I([Selesai])
+  G --> I
+  H --> I
+
+  J([Transaksi masuk]) --> K[Petugas pilih kendaraan dan area]
+  K --> L[BEGIN; kunci area FOR UPDATE]
+  L --> M{Slot tersedia dan kendaraan tidak aktif?}
+  M -- Tidak --> N[ROLLBACK dan tampilkan pesan]
+  M -- Ya --> O[Simpan transaksi masuk]
+  O --> P[Tambah terisi dan catat log]
+  P --> Q[COMMIT]
+  Q --> R([Selesai])
+  N --> R
+
+  S([Transaksi keluar]) --> T[Kunci transaksi aktif]
+  T --> U{Transaksi valid?}
+  U -- Tidak --> V[ROLLBACK]
+  U -- Ya --> W[Hitung durasi dan biaya]
+  W --> X[Update transaksi, kurangi terisi, catat log]
+  X --> Y[COMMIT]
+  Y --> Z[Cetak struk]
+  V --> AA([Selesai])
+  Z --> AA
+
+  AB([Rekap Owner]) --> AC[Input tanggal awal dan akhir]
+  AC --> AD[Validasi tanggal dan query maksimal 500 baris]
+  AD --> AE[Tampilkan tabel dan pendapatan]
+  AE --> AF([Selesai])
